@@ -1,0 +1,46 @@
+﻿<!doctype html>
+<html class="no-js" lang="">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Index of pages</title>
+    <meta name="description" content="<%= description %>">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/bootstrap.css">
+</head>
+<body>
+    <div id="page-content"></div>
+    <script src="vendor.bundle.js"></script>
+    <script src="bundle.js"></script>
+    <script type="text/javascript">
+        function getUrlVars() {
+            var vars = {};
+            window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function (m, key, value) {
+                vars[key] = value;
+            });
+            return vars;
+        }
+
+        function getKeys(obj) {
+            var keys = [];
+            for (var key in obj) {
+                keys.push(key);
+            }
+            return keys;
+        }
+
+        function isRouter(module) {
+            return module.renderToDom;
+        }
+
+        function getAppName() {
+            return location.pathname.substring(location.pathname.lastIndexOf('/') + 1).replace('.html', '');
+
+        }
+
+        var pg1 = AltiFinApp[getAppName()];
+        if (isRouter(pg1))
+            pg1.renderToDom("page-content");
+    </script>
+</body>
+</html>

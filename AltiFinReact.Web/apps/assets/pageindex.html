@@ -1,0 +1,59 @@
+﻿<!doctype html>
+<html class="no-js" lang="">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Index of pages</title>
+    <meta name="description" content="<%= description %>">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/bootstrap.css">
+  </head>
+  <body>
+      <div id="page-content"></div>
+      <script src="vendor.bundle.js"></script>
+      <script src="bundle.js"></script>
+      <script type="text/javascript">
+          function getUrlVars() {
+              var vars = {};
+              window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
+                  vars[key] = value;
+              });
+              return vars;
+          }
+
+          function getKeys(obj){
+              var keys = [];
+              for(var key in obj){
+                  keys.push(key);
+              }
+              return keys;
+          }
+
+          function isRouter(module) {
+              return module.renderToDom;
+          }
+
+          var pageName = getUrlVars()["pn"];
+          if (pageName != '' && pageName != undefined) {
+              var pg1 = AltiFinApp[pageName];
+              if (isRouter(pg1))
+                  pg1.run(function (Handler) {
+                      React.render(React.createElement(Handler), document.getElementById("page-content"));});
+              AltiFinApp.render(pg1);
+          }
+          else {
+              var pc = document.getElementById('page-content');
+              pc.innerHTML += '<ul>';
+              for (var prop in AltiFinApp) {
+                  if (prop == 'render')
+                      continue;
+                  if (isRouter(AltiFinApp[prop]))
+                      pc.innerHTML += '<li><a href="/' + prop + '.html">' + prop + '</a></li>'
+                      else
+                  pc.innerHTML += '<li><a href="?pn=' + prop + '">' + prop + '</a></li>';
+              }
+              pc.innerHTML += '</ul>';
+          }
+      </script>
+  </body>
+</html>
