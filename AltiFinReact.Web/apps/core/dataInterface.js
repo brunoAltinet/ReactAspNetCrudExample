@@ -3,8 +3,7 @@ var inDOMEnvironment = typeof window !== 'undefined';
 var dataProvider = require("./syncDataProvider");
 var serverAddress = window.location.host;
 
-serverAddress = "localhost:54154";
-
+serverAddress = "altifinreact.azurewebsites.net";
 var DataInterface = (function() {
   // "private" variables
   var _inDom = inDOMEnvironment;

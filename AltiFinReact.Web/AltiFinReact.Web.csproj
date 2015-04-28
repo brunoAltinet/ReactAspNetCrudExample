@@ -254,8 +254,6 @@
     <Content Include="build\bundle.js" />
     <Content Include="build\css\bootstrap.css" />
     <Content Include="build\fonts\glyphicons-halflings-regular.svg" />
-    <Content Include="build\images\logo-small%402x.png" />
-    <Content Include="build\images\logo-small.png" />
     <Content Include="build\index.html" />
     <Content Include="build\vendor.bundle.js" />
     <Content Include="config\preprocessor.js" />
@@ -266,6 +264,7 @@
     <Content Include="Icon.png" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <None Include="Properties\PublishProfiles\AltiFinReact %282%29.pubxml" />
     <None Include="Scripts\jquery-2.1.3.intellisense.js" />
     <Content Include="Scripts\jquery-2.1.3.js" />
     <Content Include="Scripts\jquery-2.1.3.min.js" />
@@ -319,6 +318,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="build\images\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
